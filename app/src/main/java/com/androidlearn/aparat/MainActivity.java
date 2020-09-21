@@ -5,15 +5,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.androidlearn.aparat.activity.PrivacyPolicyActivity;
 import com.androidlearn.aparat.adapter.TabsAdapter;
 import com.androidlearn.aparat.databinding.ActivityMainBinding;
 import com.androidlearn.aparat.fragments.CategoryFragment;
 import com.androidlearn.aparat.fragments.FavoriteFragment;
 import com.androidlearn.aparat.fragments.HomeFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -91,6 +94,29 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onPageScrollStateChanged(int state) {
 
+            }
+        });
+
+
+        binding.navigation.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+
+
+                switch (menuItem.getItemId()) {
+
+                    case R.id.item_privacy:
+
+                        Intent intent = new Intent(getApplicationContext() , PrivacyPolicyActivity.class);
+
+                        startActivity(intent);
+
+                        break;
+
+
+                }
+
+                return false;
             }
         });
 
